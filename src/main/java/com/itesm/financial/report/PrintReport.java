@@ -1,12 +1,15 @@
-package com.itesm.financial;
+package com.itesm.financial.report;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-public class PrintReport {
+import com.itesm.financial.Ride;
 
+public class PrintReport extends Report {
+
+    @Override
     public String createContent(List<Ride> rides){
         //Formato de documento: titulo y headers
         StringBuilder builder = new StringBuilder();

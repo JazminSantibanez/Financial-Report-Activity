@@ -1,6 +1,9 @@
 package com.itesm.financial;
 import java.util.List;
 
+import com.itesm.financial.report.PrintReport;
+import com.itesm.financial.report.WebReport;
+
 public class Client {
     private static final String CSV_FILENAME = "taxi-data.csv";
 
