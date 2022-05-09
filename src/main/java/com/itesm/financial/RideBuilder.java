@@ -14,21 +14,6 @@ public class RideBuilder {
     Ride ride;
 
     /* Aplicando el patron builder para el constructor de Ride
-      public Ride(
-      long taxiId,
-      Date pickUpTime,
-      Date dropOffTime,
-      int passengerCount,
-      double tripDistance,
-      double tollsAmount) {
-            this.taxiId = taxiId;
-            this.pickUpTime = pickUpTime;
-            this.dropOffTime = dropOffTime;
-            this.passengerCount = passengerCount;
-            this.tripDistance = tripDistance;
-            this.tollsAmount = tollsAmount;
-        }
-
     */
     
     //class methods

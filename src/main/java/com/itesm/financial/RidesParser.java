@@ -22,13 +22,15 @@ public class RidesParser {
       double tripDistance = Double.parseDouble(line.get(4));
       double totalAmount = Double.parseDouble(line.get(5));
       
-      builder.withTaxiId(taxiId);
-      builder.withPickUpTime(pickUpTime);
-      builder.withDropOffTime(dropOffTime);
-      builder.withPassengerCount(passengerCount);
-      builder.withTripDistance(tripDistance);
-      builder.withTollsAmount(totalAmount);
-      newRide = builder.build();
+      //Method chaining
+      newRide = builder
+                .withTaxiId(taxiId)
+                .withPickUpTime(pickUpTime)
+                .withDropOffTime(dropOffTime)
+                .withPassengerCount(passengerCount)
+                .withTripDistance(tripDistance)
+                .withTollsAmount(totalAmount)
+                .build();
 
 
       /* Antigua implementacion del constructor de ride

@@ -18,11 +18,8 @@ public class Client {
     public Client(AnalyzerInterface analyzer) {
         Client.analyzer = analyzer;
     }
-
     public static void main(String[] args) throws Exception {
         
-        AnalyzerInterface analyzer = new FinancialAnalyzer(); //Polimorfismo
-
         System.out.println("Financial Report Generation");
 
         /*  
@@ -32,6 +29,7 @@ public class Client {
             Se aplico Single Responsability para que la clase usuario no sea
             la que lee la informacion.
         */
+        AnalyzerInterface analyzer = new FinancialAnalyzer(); //Polimorfismo
         List<Ride> result = analyzer.analyze(CSV_FILENAME);
         
 
