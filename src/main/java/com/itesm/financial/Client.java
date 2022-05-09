@@ -3,14 +3,31 @@ import java.util.List;
 
 public class Client {
     private static final String CSV_FILENAME = "taxi-data.csv";
-    public static FinancialAnalyzer analyzer = new FinancialAnalyzer();
+
+    /*
+        Dependency Inversion 
+
+        Removed: public static FinancialAnalyzer analyzer = new FinancialAnalyzer();
+        to avoid dependency of client over FinancialAnalyzer.
+        Created the inference AnalyzerInterface and removed dependency with a 
+        constructor in Client.
+    */
+    //
+    public static AnalyzerInterface analyzer;
+
+    public Client(AnalyzerInterface analyzer) {
+        Client.analyzer = analyzer;
+    }
 
     public static void main(String[] args) throws Exception {
+        AnalyzerInterface analyzer = new FinancialAnalyzer();
+
         System.out.println("Financial Report Generation");
 
         /*  
             Lee archivo de datos y lo convierte a objeto Ride
             
+            Single Responsability
             Se aplico Single Responsability para que la clase usuario no sea
             la que lee la informacion.
         */
