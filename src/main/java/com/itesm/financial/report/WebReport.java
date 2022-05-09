@@ -22,6 +22,7 @@ public class WebReport extends Report{
         return builder.toString();
     }
 
+    @Override
     public void createFile(String content) throws IOException {
         FileWriter fileWriter = new FileWriter("financial-report.html");
         PrintWriter printWriter = new PrintWriter(fileWriter);

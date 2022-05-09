@@ -23,6 +23,7 @@ public class PrintReport extends Report {
         return builder.toString();
     }
 
+    @Override
     public void createFile(String content) throws IOException {
         FileWriter fileWriter = new FileWriter("financial-report.txt");
         PrintWriter printWriter = new PrintWriter(fileWriter);
