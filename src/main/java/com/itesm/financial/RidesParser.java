@@ -11,6 +11,9 @@ public class RidesParser {
   public static Ride parseFromList(List<String> line) {
 
     Ride newRide = null;
+
+    //Se utiliza el patron de builder para crear el objeto Ride
+    RideBuilder builder = RideBuilder.getBuilder();
     try {
       long taxiId = Long.parseLong(line.get(0));
       Date pickUpTime = new SimpleDateFormat(DATE_FORMAT).parse(line.get(1));
@@ -18,7 +21,17 @@ public class RidesParser {
       int passengerCount = Integer.parseInt(line.get(3));
       double tripDistance = Double.parseDouble(line.get(4));
       double totalAmount = Double.parseDouble(line.get(5));
+      
+      builder.withTaxiId(taxiId);
+      builder.withPickUpTime(pickUpTime);
+      builder.withDropOffTime(dropOffTime);
+      builder.withPassengerCount(passengerCount);
+      builder.withTripDistance(tripDistance);
+      builder.withTollsAmount(totalAmount);
+      newRide = builder.build();
 
+
+      /* Antigua implementacion del constructor de ride
       newRide =
           new Ride(
               taxiId,
@@ -27,7 +40,7 @@ public class RidesParser {
               passengerCount,
               tripDistance,
               totalAmount);
-
+      */
     } catch (Exception e) { }
 
     return newRide;

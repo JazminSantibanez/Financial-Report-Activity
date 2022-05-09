@@ -20,7 +20,8 @@ public class Client {
     }
 
     public static void main(String[] args) throws Exception {
-        AnalyzerInterface analyzer = new FinancialAnalyzer();
+        
+        AnalyzerInterface analyzer = new FinancialAnalyzer(); //Polimorfismo
 
         System.out.println("Financial Report Generation");
 

@@ -7,6 +7,7 @@ import java.util.List;
 
     This interface allows to separate the methods of 
     analyze and readData in the class FinancialAnalyzer.
+    readData isnt available for the class Client but analyze is available.
     
 */
 
