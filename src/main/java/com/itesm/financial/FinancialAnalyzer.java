@@ -6,14 +6,12 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FinancialAnalyzer {
+public class FinancialAnalyzer implements AnalyzerInterface{
 
     public List<Ride> analyze(String filename) throws Exception{
         List<Ride> result = new ArrayList<>();
 
-        InputStream inputStream = Client.class.getClassLoader().getResourceAsStream(filename);
-        InputStreamReader streamReader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
-        BufferedReader reader = new BufferedReader(streamReader);
+        BufferedReader reader = readData(filename);
 
         for (String rawLine; (rawLine = reader.readLine()) != null;) {
             List<String> line = CSVUtils.parseLine(rawLine);
@@ -24,7 +22,14 @@ public class FinancialAnalyzer {
         }
 
         return result;
-        
+    }
+
+    private BufferedReader readData(String filename){
+        InputStream inputStream = Client.class.getClassLoader().getResourceAsStream(filename);
+        InputStreamReader streamReader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
+        BufferedReader reader = new BufferedReader(streamReader);
+
+        return reader;
     }
     
 }
