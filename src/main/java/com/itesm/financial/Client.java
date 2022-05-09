@@ -21,7 +21,12 @@ public class Client {
         WebReport webReport = new WebReport();
         String htmlReport = webReport.createContent(result);
 
+        //Imprime el reporte en texto
+        PrintReport textReport = new PrintReport();
+        String txtReport = textReport.createContent(result); 
+
         // System.out.println(htmlReport);
         webReport.createFile(htmlReport);
+        textReport.createFile(txtReport);
     }
 }
