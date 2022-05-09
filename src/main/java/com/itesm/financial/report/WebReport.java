@@ -1,12 +1,15 @@
-package com.itesm.financial;
+package com.itesm.financial.report;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-public class WebReport {
+import com.itesm.financial.Ride;
 
+public class WebReport extends Report{
+
+    @Override
     public String createContent(List<Ride> rides) {
         StringBuilder builder = new StringBuilder();
         builder.append(createHeaders("Taxi Report"));
@@ -19,6 +22,7 @@ public class WebReport {
         return builder.toString();
     }
 
+    @Override
     public void createFile(String content) throws IOException {
         FileWriter fileWriter = new FileWriter("financial-report.html");
         PrintWriter printWriter = new PrintWriter(fileWriter);

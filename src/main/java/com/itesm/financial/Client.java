@@ -1,6 +1,8 @@
 package com.itesm.financial;
 import java.util.List;
 
+import com.itesm.financial.report.Report;
+
 public class Client {
     private static final String CSV_FILENAME = "taxi-data.csv";
 
@@ -32,17 +34,19 @@ public class Client {
         AnalyzerInterface analyzer = new FinancialAnalyzer(); //Polimorfismo
         List<Ride> result = analyzer.analyze(CSV_FILENAME);
         
+        /*
+            Creation of reports using Factory Method
+        */
+        WebReportCreator webReport = new WebReportCreator();
+        Report report1 = webReport.createReport();
+        String htmlReport = report1.createContent(result);
 
-        //Imprime el reporte en web
-        WebReport webReport = new WebReport();
-        String htmlReport = webReport.createContent(result);
-
-        //Imprime el reporte en texto
-        PrintReport textReport = new PrintReport();
-        String txtReport = textReport.createContent(result); 
+        PrintReportCreator textReport = new PrintReportCreator();
+        Report report2 = textReport.createReport();
+        String txtReport = report2.createContent(result);
 
         // System.out.println(htmlReport);
-        webReport.createFile(htmlReport);
-        textReport.createFile(txtReport);
+        report1.createFile(htmlReport);
+        report2.createFile(txtReport);
     }
 }
